@@ -3,8 +3,10 @@ import Taro, {useLoad} from '@tarojs/taro'
 import './index.scss'
 import NavCustomBar from "@/components/NavCustomBar";
 import {homeStyle} from "@/styles/homeStyle";
+import {createErrorBoundary} from "@/widget/ErrorBoundary";
+import {useEffect} from "react";
 
-export default function Index() {
+function Index() {
 
     useLoad(() => {
         console.log('Page loaded.')
@@ -16,6 +18,10 @@ export default function Index() {
         })
     })
 
+    useEffect(() => {
+        throw new Error('I crashed!')
+    })
+
     return (
         <View className='taro_page' style={homeStyle.rootStyle}>
             <NavCustomBar mainTitle='首页' />
@@ -23,3 +29,5 @@ export default function Index() {
         </View>
     )
 }
+
+export default createErrorBoundary(Index)
