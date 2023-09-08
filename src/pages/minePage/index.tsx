@@ -1,4 +1,4 @@
-import { View, Text } from '@tarojs/components'
+import {View, Button} from '@tarojs/components'
 import Taro, { useLoad } from '@tarojs/taro'
 import './index.scss'
 
@@ -8,7 +8,7 @@ export default function MinePage() {
     console.log('Page loaded.')
   })
 
-  const myClick = () => {
+  const showDialog = () => {
     Taro.showModal({
       title: '提示',
       content: '这是一个模态弹窗',
@@ -31,17 +31,29 @@ export default function MinePage() {
     }, 2000)
   }
 
-  const showToast =() => {
+  const showToast = (title: string) => () => {
     Taro.showToast({
-      title: '成功',
+      title,
       icon: 'none',
       duration: 2000
     })
   }
 
+  const request = () => {
+    Taro.request({
+      url: 'https://www.wanandroid.com/article/list/0/json',
+      success: (res) => {
+        console.log(JSON.stringify(res.data))
+      }
+    })
+  }
+
   return (
     <View className='minePage'>
-      <Text onClick={showToast}>我的页面</Text>
+      <Button onClick={showToast('成功')}>展示toast</Button>
+      <Button onClick={showLoading}>展示loading</Button>
+      <Button onClick={showDialog}>展示弹窗</Button>
+      <Button onClick={request}>请求网络</Button>
     </View>
   )
 }

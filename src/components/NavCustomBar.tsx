@@ -39,15 +39,13 @@ export default class NavCustomBar extends Component<IProps, IState> {
   }
 
   goBackPage = () => {
-    Taro.navigateTo({
-      url: '/pages/minePage/index'
-    })
+    Taro.exitMiniProgram()
   }
 
   render() {
     let {needBackIcon = true, mainTitle = ''} = this.props
     return (
-      <View style={{height: `${this.state.navBarHeight}px`}}>
+      <View style={{height: `${this.state.navBarHeight}px`, background: '#Fe3666', width: "100%"}}>
         <View style={{height: `${this.state.topHeight}px`}} />
         {needBackIcon &&
           <Image

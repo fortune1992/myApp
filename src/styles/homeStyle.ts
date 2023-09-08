@@ -2,6 +2,7 @@ import {CSSProperties} from "react";
 
 export const homeStyle: {
   rootStyle: CSSProperties,
+  containerStyle: CSSProperties,
   backIcon: CSSProperties,
   titleStyle: CSSProperties,
 } = {
@@ -9,7 +10,15 @@ export const homeStyle: {
     flexDirection: 'column',
     display: 'flex',
     height: '100%',
-    background: '#fe3666'
+    background: '#fe3666',
+    alignItems: 'center',
+  },
+
+  containerStyle: {
+    flexDirection: 'column',
+    display: 'flex',
+    height: '100%',
+    alignItems: 'center',
   },
   backIcon: {
     width: 24,
