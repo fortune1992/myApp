@@ -6,7 +6,6 @@
     "@typescript-eslint/no-useless-constructor": "off",
     "import/first": "off",
     "react/sort-comp": "off",
-    "react/jsx-indent-props": "off",
-    "react/jsx-closing-bracket-location": "off"
+    "react/jsx-first-prop-new-line": 1
   }
 }

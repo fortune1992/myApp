@@ -2,14 +2,18 @@
   margin-top: 50px;
   flex-direction: column;
   display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .bigBlue {
   color: blue;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 14pt;
 }
 
-.bigRed {
+.red {
   color: red;
+  font-style: italic;
 }

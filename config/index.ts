@@ -5,6 +5,7 @@ import prodConfig from './prod'
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
+  const CIPluginFn = require("./ci.config");
   const baseConfig: UserConfigExport = {
     projectName: 'myApp',
     date: '2023-9-7',
@@ -17,7 +18,10 @@ export default defineConfig(async (merge, { command, mode }) => {
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
+    plugins: [
+      ['@tarojs/plugin-mini-ci', CIPluginFn],
+      require('path').join(__dirname, './ci.hooks')
+    ],
     defineConstants: {
     },
     copy: {

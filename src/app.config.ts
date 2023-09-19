@@ -1,12 +1,12 @@
 export default defineAppConfig({
     pages: [
+        'pages/styleTestPage/index',
         'pages/storageTestPage/index',
         'pages/animateTestPage/index',
         'pages/networkTestPage/index',
         'pages/componentTestPage/index',
         'pages/flexTestPage/index',
         'pages/screenTestPage/index',
-        'pages/styleTestPage/index',
         'pages/stateTestPage/index',
         'pages/imageTestPage/index',
         'pages/testPage/index',
