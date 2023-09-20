@@ -18,13 +18,13 @@ export default function Index() {
 
     const gotoWeb = () => {
         Taro.navigateTo({
-            url: `/pages/webPage/index?url=${encodeURIComponent("https://docs.taro.zone/docs/react-error-handling")}`
+            url: `/pages/webPage/index?url=${encodeURIComponent("https://docs.taro.zone/docs/react-error-handling/index.html")}`
         })
     }
 
     const gotoListPage = () => {
         Taro.navigateTo({
-            url: `/pages/listPage/index?url=${encodeURIComponent("https://docs.taro.zone/docs/react-error-handling")}`
+            url: `/pages/listPage/index?url=${encodeURIComponent("https://docs.taro.zone/docs/react-error-handling/index.html")}`
         })
     }
 
