@@ -12,9 +12,9 @@ export default class ComponentTestPage extends Component {
         return (
             // <ImageComponent />
             // <ImageAndTextComponent />
-            // <ScrollViewComponent />
+            <ScrollViewComponent />
             // <InputComponent />
-            <ClickComponent />
+            // <ClickComponent />
         )
     }
 }

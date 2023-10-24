@@ -5,7 +5,8 @@ const pkg = require('../package.json')
 
 // 可以执行脚步时指定构建用户：npm run build:weapp:upload -- --user={zsf}
 const CIPluginFn = async () => {
-  console.log("pengguolong", yargs.argv.desc)
+  console.log("pengguolong", yargs.argv)
+  const { verCode, verName } = yargs.argv
   /**
    * @typedef { import("@tarojs/plugin-mini-ci").CIOptions } CIOptions
    * @type {CIOptions}
@@ -13,9 +14,11 @@ const CIPluginFn = async () => {
   const userName = childProcess.execSync('git config user.name', { encoding: 'utf-8' });
   const branch = childProcess.execSync('git branch --show-current', { encoding: 'utf-8' });
   const commitID = childProcess.execSync('git rev-parse --short HEAD', { encoding: 'utf-8' });
-  const version = pkg.taroConfig.version;
-  let desc = pkg.taroConfig.desc;
-  desc = userName ? `${desc} branch: ${branch} commitId: ${commitID} (由${userName}发布)` : `$${desc} ${branch}: ${commitID}`;
+  const commitMessage = childProcess.execSync('git log -1 --pretty=format:"%s"', { encoding: 'utf-8' });
+  const version = verCode || pkg.taroConfig.version;
+  // let desc = pkg.taroConfig.desc;
+  let desc = commitMessage;
+  desc = userName ? `${desc} branch：${branch} commitId：${commitID} 发布人：${userName}` : `$${desc} ${branch}: ${commitID}`;
 
   return {
     weapp: {
