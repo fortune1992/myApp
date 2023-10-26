@@ -5,19 +5,22 @@ import prodConfig from './prod'
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig(async (merge, { command, mode }) => {
+  const CIPluginFn = require("./ci.config");
   const baseConfig: UserConfigExport = {
     projectName: 'myApp',
     date: '2023-9-7',
-    designWidth: 750,
+    designWidth: 375,
     deviceRatio: {
-      640: 2.34 / 2,
       750: 1,
       375: 2,
-      828: 1.81 / 2
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
+    plugins: [
+      '@tarojs/plugin-http',
+      ['@tarojs/plugin-mini-ci', CIPluginFn],
+      require('path').join(__dirname, './ci.hooks')
+    ],
     defineConstants: {
     },
     copy: {
@@ -36,13 +39,19 @@ export default defineConfig(async (merge, { command, mode }) => {
         pxtransform: {
           enable: true,
           config: {
-
+            onePxTransform: true,
+            unitPrecision: 5,
+            propList: ['*'],
+            selectorBlackList: [],
+            replace: true,
+            mediaQuery: false,
+            minPixelValue: 0
           }
         },
         url: {
           enable: true,
           config: {
-            limit: 1024 // 设定转换尺寸上限
+            limit: 10240 // 设定转换尺寸上限
           }
         },
         cssModules: {
@@ -70,9 +79,22 @@ export default defineConfig(async (merge, { command, mode }) => {
         chunkFilename: 'css/[name].[chunkhash].css'
       },
       postcss: {
+        pxtransform: {
+          enable: true,
+          config: {
+            onePxTransform: true,
+            unitPrecision: 5,
+            propList: ['*'],
+            selectorBlackList: [],
+            replace: true,
+            mediaQuery: false,
+            minPixelValue: 0
+          }
+        },
         autoprefixer: {
           enable: true,
-          config: {}
+          config: {
+          }
         },
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true

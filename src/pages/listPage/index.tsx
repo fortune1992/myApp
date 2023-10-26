@@ -17,7 +17,6 @@ export default function ListPage() {
     }
 
     const data = buildData(0)
-    console.log("data: " + data)
     const dataLen = data.length
     return (
         <VirtualList

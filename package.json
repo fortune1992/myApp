@@ -1,12 +1,16 @@
 {
   "name": "myApp",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": true,
   "description": "我的项目",
   "templateInfo": {
     "name": "default",
     "typescript": true,
     "css": "sass"
+  },
+  "taroConfig": {
+    "version": "1.0.1",
+    "desc": "接入CI"
   },
   "scripts": {
     "build:weapp": "taro build --type weapp",
@@ -27,6 +31,7 @@
     "dev:qq": "npm run build:qq -- --watch",
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
+    "build:weapp:upload": "taro build --type weapp --upload",
     "test": "jest"
   },
   "browserslist": [
@@ -40,6 +45,7 @@
     "@tarojs/components": "3.6.15",
     "@tarojs/helper": "3.6.15",
     "@tarojs/plugin-framework-react": "3.6.15",
+    "@tarojs/plugin-http": "^3.6.17",
     "@tarojs/plugin-platform-alipay": "3.6.15",
     "@tarojs/plugin-platform-h5": "3.6.15",
     "@tarojs/plugin-platform-jd": "3.6.15",
@@ -53,12 +59,14 @@
     "@tarojs/taro": "3.6.15",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "taro-lottie": "^1.0.2",
     "taro-ui": "^3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@tarojs/cli": "3.6.15",
+    "@tarojs/plugin-mini-ci": "^3.6.16",
     "@tarojs/taro-loader": "3.6.15",
     "@tarojs/test-utils-react": "^0.1.1",
     "@tarojs/webpack5-runner": "3.6.15",
@@ -76,12 +84,16 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.5.0",
+    "miniprogram-ci": "^1.9.8",
     "postcss": "^8.4.18",
     "react-refresh": "^0.11.0",
     "stylelint": "^14.4.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.1.0",
-    "webpack": "5.78.0"
+    "webpack": "5.78.0",
+    "axios": "^1.5.1",
+    "form-data": "^4.0.0",
+    "fs-extra": "^11.1.1"
   }
 }

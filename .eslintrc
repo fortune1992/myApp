@@ -5,6 +5,7 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-useless-constructor": "off",
     "import/first": "off",
-    "react/sort-comp": "off"
+    "react/sort-comp": "off",
+    "react/jsx-first-prop-new-line": 1
   }
 }

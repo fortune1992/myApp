@@ -1,8 +1,8 @@
 import Taro from '@tarojs/taro';
 import {View, Text, Image} from '@tarojs/components';
 import {Component} from 'react'
-import {images} from "@/images";
 import {homeStyle} from "@/styles/homeStyle";
+import backImg from '../images/ic_back.jpg';
 
 interface IState {
   navBarHeight: number
@@ -49,7 +49,7 @@ export default class NavCustomBar extends Component<IProps, IState> {
         <View style={{height: `${this.state.topHeight}px`}} />
         {needBackIcon &&
           <Image
-            src={images.icBack}
+            src={backImg}
             style={homeStyle.backIcon}
             onClick={this.goBackPage}
           />}
