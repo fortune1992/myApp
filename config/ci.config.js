@@ -19,6 +19,7 @@ const CIPluginFn = async () => {
   // let desc = pkg.taroConfig.desc;
   let desc = commitMessage;
   desc = userName ? `${desc} branch：${branch} commitId：${commitID} 发布人：${userName}` : `$${desc} ${branch}: ${commitID}`;
+  console.log('desc', desc);
 
   return {
     weapp: {

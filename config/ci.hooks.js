@@ -21,7 +21,7 @@ const getCardBody = (imageKey, data) => {
           {
             is_short: true,
             text: {
-              content: `描述：${desc.substring(0, index)} \n${desc.substring(index).replace(/ /g, "\n")}}`,
+              content: `描述：${desc.substring(0, index)} \n${desc.substring(index).replace(/ /g, "\n")}`,
               tag: 'lark_md',
             },
           }
