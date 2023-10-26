@@ -1,5 +1,6 @@
 export default defineAppConfig({
     pages: [
+        'pages/imageTestPage/index',
         'pages/componentTestPage/index',
         'pages/yinZhangPage/index',
         'pages/videoTest/index',
@@ -10,7 +11,6 @@ export default defineAppConfig({
         'pages/flexTestPage/index',
         'pages/screenTestPage/index',
         'pages/stateTestPage/index',
-        'pages/imageTestPage/index',
         'pages/testPage/index',
         'pages/index/index',
         'pages/minePage/index',
@@ -22,5 +22,6 @@ export default defineAppConfig({
         navigationBarBackgroundColor: '#fff',
         navigationBarTitleText: 'WeChat',
         navigationBarTextStyle: 'black'
-    }
+    },
+    lazyCodeLoading: 'requiredComponents',
 })
