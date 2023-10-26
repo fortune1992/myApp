@@ -33,11 +33,13 @@ export default class ImageTestPage extends Component {
   private takeSnapshot = () => {
     Taro.createSelectorQuery()
       .select('#mySnapshot')
-      .fields({
-        node: true,
-        size: true
-      }, (res) => {
-        console.log('mySnapshot', res);
+      .node(res => {
+        res.node.takeSnapshot({
+          success: (successRes) => {
+            console.log('takeSnapshot', successRes);
+            Taro.saveImageToPhotosAlbum({filePath: successRes.tempFilePath})
+          }
+        })
       })
       .exec();
   }
